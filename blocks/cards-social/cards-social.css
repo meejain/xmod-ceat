@@ -1,0 +1,400 @@
+/* stylelint-disable no-descending-specificity */
+
+/* cards-social — Instagram-style social media card slider with hover share & video modal (CEAT style) */
+
+.cards-social-container {
+  padding: 40px 0 60px;
+}
+
+.cards-social-container .cards-social-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+}
+
+.cards-social {
+  position: relative;
+}
+
+/* ── Card track — horizontal scroll ── */
+.cards-social-track {
+  display: flex;
+  gap: 3px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.cards-social-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Individual card ── */
+.cards-social-card {
+  flex: 0 0 calc(50% - 1.5px);
+  scroll-snap-align: start;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 22%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.cards-social-card:hover {
+  box-shadow: 0 3px 8px rgb(0 0 0 / 28%);
+}
+
+/* ── Card image container ── */
+.cards-social-card-image {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* 1:1 aspect ratio */
+  overflow: hidden;
+}
+
+.cards-social-card-image picture,
+.cards-social-card-image picture > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Video icon — top right, visible on hover ── */
+.cards-social-video-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 20px;
+  height: 14px;
+  opacity: 0;
+  transition: opacity 0.225s ease-out;
+  pointer-events: none;
+}
+
+.cards-social-video-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.cards-social-card:hover .cards-social-video-icon {
+  opacity: 1;
+}
+
+/* ── Share button — top left, visible on card hover ── */
+.cards-social-share {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 7;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.cards-social-card:hover .cards-social-share {
+  opacity: 1;
+}
+
+.cards-social-share-btn {
+  width: 28px;
+  height: 28px;
+  background: #fff;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.3s;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.cards-social-share-btn:hover {
+  background: #f0f0f0;
+}
+
+.cards-social-share-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: #2b2b2b;
+}
+
+/* Share icons list — collapsed, expands on share btn hover */
+.cards-social-share-icons {
+  display: flex;
+  gap: 2px;
+  max-width: 0;
+  overflow: hidden;
+  transition: max-width 0.3s ease-in-out, padding 0.3s ease-in-out;
+  padding-left: 0;
+}
+
+.cards-social-share:hover .cards-social-share-icons {
+  max-width: 120px;
+  padding-left: 4px;
+}
+
+.cards-social-share-icons a {
+  width: 28px;
+  height: 28px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background 0.3s ease-in-out;
+  flex-shrink: 0;
+}
+
+.cards-social-share-icons a:hover {
+  background: #e8e8e8;
+}
+
+.cards-social-share-icons a svg {
+  width: 14px;
+  height: 14px;
+  fill: #000;
+}
+
+/* ── Author / Profile section ── */
+.cards-social-card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 15px 15px;
+  text-align: center;
+}
+
+.cards-social-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  overflow: hidden;
+  margin-top: -25px;
+  z-index: 1;
+  background: #f7f7f7;
+  flex-shrink: 0;
+}
+
+.cards-social-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cards-social-author {
+  font-family: poppins, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #454545;
+  margin: 12px 0 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.cards-social-handle {
+  font-family: poppins, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: #454545;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  margin: 0 0 12px;
+}
+
+.cards-social-platform-icon {
+  display: flex;
+  justify-content: center;
+}
+
+.cards-social-platform-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ── Navigation arrows — white circle, centered in image area, visible on block hover ── */
+.cards-social-arrows {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  padding-top: 10%; /* vertically center in image area (20% card width × 100% aspect = 20% of track, half = 10%) */
+  pointer-events: none;
+  box-sizing: border-box;
+  z-index: 8;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.cards-social:hover .cards-social-arrows {
+  opacity: 1;
+}
+
+.cards-social-arrow-prev,
+.cards-social-arrow-next {
+  pointer-events: all;
+  width: 36px;
+  height: 36px;
+  background: #fff;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+  padding: 0;
+  transform: translateY(-50%);
+}
+
+.cards-social-arrow-prev {
+  margin-left: 10px;
+  box-shadow: 3px 0 3px rgb(0 0 0 / 15%);
+}
+
+.cards-social-arrow-next {
+  margin-right: 10px;
+  box-shadow: -3px 0 3px rgb(0 0 0 / 15%);
+}
+
+.cards-social-arrow-prev:hover,
+.cards-social-arrow-next:hover {
+  opacity: 1;
+}
+
+.cards-social-arrow-prev:disabled,
+.cards-social-arrow-next:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.cards-social-arrow-prev svg,
+.cards-social-arrow-next svg {
+  width: 14px;
+  height: 14px;
+  fill: #000;
+}
+
+/* ── Video modal overlay ── */
+.cards-social-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgb(0 0 0 / 80%);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.cards-social-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cards-social-modal {
+  position: relative;
+  max-width: 720px;
+  width: 90%;
+  max-height: 85vh;
+  background: #000;
+  border-radius: 8px;
+  overflow: visible;
+}
+
+.cards-social-modal-close {
+  position: absolute;
+  top: -36px;
+  right: 0;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 0;
+}
+
+.cards-social-modal-close svg {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+}
+
+.cards-social-modal-body {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.cards-social-modal-body iframe,
+.cards-social-modal-body video {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.cards-social-modal-body img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ── Tablet — 3 cards visible ── */
+@media (width >= 600px) {
+  .cards-social-card {
+    flex: 0 0 calc((100% - 6px) / 3);
+  }
+
+  .cards-social-arrows {
+    display: flex;
+    padding-top: calc((100% / 3) / 2); /* center in card image area */
+  }
+}
+
+/* ── Desktop — 5 cards visible ── */
+@media (width >= 900px) {
+  .cards-social-container .cards-social-wrapper {
+    padding: 0 48px;
+  }
+
+  .cards-social-card {
+    flex: 0 0 calc((100% - 12px) / 5);
+  }
+
+  .cards-social-arrows {
+    padding-top: calc((100% / 5) / 2); /* center in card image area */
+  }
+}

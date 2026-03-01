@@ -1,0 +1,428 @@
+/* columns-finder — tyre finder overlapping carousel */
+
+main > .columns-finder-container {
+  padding: 0;
+  margin-top: -67px;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 3;
+}
+
+.columns-finder-container .columns-finder-wrapper {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.columns-finder {
+  background: transparent;
+}
+
+/* ── Header: "Search by" bar ── */
+.columns-finder .cf-header {
+  background: #f0f0f0;
+  padding: 15px 20px;
+  border-radius: 3px 3px 0 0;
+  margin: 0 24px;
+  max-width: 338px;
+}
+
+.columns-finder .cf-title {
+  font-size: 12px;
+  font-weight: 300;
+  color: #333;
+  margin: 0 0 12px;
+}
+
+.columns-finder .cf-pill-tabs {
+  display: flex;
+  gap: 0;
+  align-items: center;
+}
+
+.columns-finder .cf-pill-divider {
+  width: 1px;
+  height: 20px;
+  background: #999;
+  flex-shrink: 0;
+  margin: 0 4px;
+}
+
+.columns-finder .cf-pill {
+  flex: 1;
+  padding: 8px 20px;
+  border-radius: 40px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid #333;
+  background: rgb(217 217 217 / 40%);
+  color: #333;
+  transition: background 0.2s, color 0.2s;
+  text-align: center;
+}
+
+.columns-finder .cf-pill.active {
+  background: #333;
+  color: #fff;
+}
+
+.columns-finder .cf-pill:hover:not(.active) {
+  background: rgb(217 217 217 / 70%);
+}
+
+/* ── Body: form area with border ── */
+.columns-finder .cf-body {
+  display: flex;
+  border: 1px solid #d6d6d6;
+  border-radius: 6px;
+  background: #fff;
+  padding: 32px 20px;
+  margin-bottom: 60px;
+}
+
+/* ── Left side: icons + vehicle form ── */
+.columns-finder .cf-left {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Vehicle icon strip */
+.columns-finder .cf-vehicle-icons {
+  display: flex;
+  flex-direction: column;
+  margin-right: 16px;
+  border-right: 1px solid #d6d6d6;
+  padding-right: 16px;
+}
+
+.columns-finder .cf-vehicle-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0 20px;
+  cursor: pointer;
+  width: 56px;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.columns-finder .cf-vehicle-icon.active {
+  opacity: 1;
+}
+
+.columns-finder .cf-vehicle-icon:hover {
+  opacity: 0.8;
+}
+
+/* Icon sizing (before more-specific show/hide rules) */
+.columns-finder .cf-icon-normal,
+.columns-finder .cf-icon-active {
+  width: 55px;
+  height: 22px;
+  object-fit: contain;
+}
+
+/* Show/hide normal vs active icon */
+.columns-finder .cf-vehicle-icon .cf-icon-active {
+  display: none;
+}
+
+.columns-finder .cf-vehicle-icon .cf-icon-normal {
+  display: block;
+}
+
+.columns-finder .cf-vehicle-icon.active .cf-icon-active {
+  display: block;
+}
+
+.columns-finder .cf-vehicle-icon.active .cf-icon-normal {
+  display: none;
+}
+
+.columns-finder .cf-vehicle-label {
+  font-size: 12px;
+  color: #333;
+  margin: 4px 0 0;
+  text-align: center;
+}
+
+/* ── Vehicle form fields ── */
+.columns-finder .cf-vehicle-form {
+  flex: 1;
+  min-width: 0;
+}
+
+.columns-finder .cf-form-heading {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 16px;
+}
+
+.columns-finder .cf-field {
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.columns-finder .cf-label {
+  display: block;
+  font-size: 10px;
+  color: #6c6c6c;
+  margin-bottom: 3px;
+}
+
+.columns-finder .cf-input {
+  width: 100%;
+  padding: 8px 16px;
+  border: 1px solid #d6d6d6;
+  border-radius: 3px;
+  font-size: 14px;
+  color: #333;
+  background: #fff;
+  height: 39px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.columns-finder .cf-input:focus {
+  border-color: #f5822d;
+}
+
+.columns-finder .cf-select {
+  width: 100%;
+  padding: 0 16px;
+  border: 1px solid #d6d6d6;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #333;
+  background: #fff;
+  height: 40px;
+  box-sizing: border-box;
+  outline: none;
+  appearance: auto;
+  transition: border-color 0.2s;
+}
+
+.columns-finder .cf-select:focus {
+  border-color: #f5822d;
+}
+
+.columns-finder .cf-search-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(2px);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+/* ── EV toggle row ── */
+.columns-finder .cf-ev-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.columns-finder .cf-ev-label {
+  font-size: 12px;
+  color: #333;
+  font-weight: 300;
+}
+
+.columns-finder .cf-toggle {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 14px;
+  cursor: pointer;
+}
+
+.columns-finder .cf-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.columns-finder .cf-slider {
+  position: absolute;
+  inset: 0;
+  background: #ccc;
+  border-radius: 14px;
+  transition: background 0.2s;
+}
+
+.columns-finder .cf-slider::before {
+  content: "";
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  left: 2px;
+  bottom: 2px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.columns-finder .cf-toggle input:checked + .cf-slider {
+  background: #f5822d;
+}
+
+.columns-finder .cf-toggle input:checked + .cf-slider::before {
+  transform: translateX(16px);
+}
+
+/* ── View Tyres button ── */
+.columns-finder .cf-submit-wrap {
+  margin-top: 16px;
+}
+
+.columns-finder .cf-view-btn {
+  background: #333;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 30px;
+  padding: 7px 20px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.columns-finder .cf-view-btn:hover {
+  background: #222;
+}
+
+/* ── "or" divider ── */
+.columns-finder .cf-or {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  margin: 0 22px 0 16px;
+  position: relative;
+  align-self: stretch;
+}
+
+.columns-finder .cf-or span {
+  font-size: 10px;
+  color: #333;
+  background: #fff;
+  padding: 4px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.columns-finder .cf-or::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: #d6d6d6;
+}
+
+/* ── Tyre size panel (right) ── */
+.columns-finder .cf-tyre-size {
+  background: #ececec;
+  border: 1px solid #c8c8c8;
+  border-radius: 5px;
+  padding: 20px;
+  width: 240px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-finder .cf-tyre-size .cf-form-heading {
+  margin-bottom: 16px;
+}
+
+.columns-finder .cf-tyre-img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+  border-radius: 3px;
+}
+
+.columns-finder .cf-tyre-size .cf-input {
+  margin-bottom: 12px;
+}
+
+/* ── Disabled/greyed panel ── */
+.columns-finder .cf-disabled {
+  opacity: 0.7;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+/* ── Hidden utility ── */
+.columns-finder .cf-hidden {
+  display: none !important;
+}
+
+/* ── Mobile ── */
+@media (width < 600px) {
+  main > .columns-finder-container {
+    margin-top: -40px;
+  }
+
+  .columns-finder .cf-header {
+    margin: 0;
+  }
+
+  .columns-finder .cf-body {
+    flex-direction: column;
+    padding: 20px 16px;
+    margin-bottom: 30px;
+  }
+
+  .columns-finder .cf-or {
+    display: none;
+  }
+
+  .columns-finder .cf-tyre-size {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .columns-finder .cf-vehicle-icons {
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 1px solid #d6d6d6;
+    padding-right: 0;
+    padding-bottom: 12px;
+    margin-right: 0;
+    margin-bottom: 16px;
+    gap: 12px;
+  }
+
+  .columns-finder .cf-vehicle-icon {
+    padding: 6px 0;
+  }
+
+  .columns-finder .cf-left {
+    flex-direction: column;
+  }
+}
+
+/* ── Tablet/Desktop ── */
+@media (width >= 600px) {
+  main > .columns-finder-container {
+    margin-top: -67px;
+  }
+
+  .columns-finder .cf-left,
+  .columns-finder .cf-tyre-size {
+    display: flex !important;
+  }
+
+  .columns-finder .cf-or {
+    display: flex !important;
+  }
+}

@@ -1,0 +1,267 @@
+/* carousel-testimonial — expert video testimonials, full-bleed image with overlaid content (CEAT style) */
+
+.carousel-testimonial-container {
+  padding: 0;
+}
+
+.carousel-testimonial-container .carousel-testimonial-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.carousel-testimonial {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  color: #fff;
+}
+
+.carousel-testimonial-slides-container {
+  position: relative;
+}
+
+.carousel-testimonial-slides {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.carousel-testimonial-slides::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Slide layout — image as full background, content overlaid ── */
+.carousel-testimonial-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  position: relative;
+  box-sizing: border-box;
+  min-height: 400px;
+}
+
+/* ── Image — full bleed background ── */
+.carousel-testimonial-slide-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.carousel-testimonial-slide-image picture,
+.carousel-testimonial-slide-image picture > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Content — overlaid on right half ── */
+.carousel-testimonial-slide-content {
+  position: relative;
+  z-index: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 24px;
+  min-height: 400px;
+  background: linear-gradient(to right, rgb(0 0 0 / 30%) 0%, rgb(0 0 0 / 60%) 100%);
+}
+
+/* "Expert Speak" label — large white heading in Poppins */
+.carousel-testimonial-slide-content h3 {
+  font-family: poppins, sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #fff;
+  margin: 0 0 24px;
+  line-height: 1;
+}
+
+/* Quote text — Poppins, large */
+.carousel-testimonial-slide-content h2 {
+  font-family: poppins, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+  margin: 0 0 24px;
+}
+
+/* Attribution row — reviewer name + product */
+.carousel-testimonial-slide-attribution {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 0 0 24px;
+}
+
+/* Reviewer name — Caveat handwriting font */
+.carousel-testimonial-slide-attribution .ct-reviewer {
+  font-family: caveat, cursive;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #fff;
+  font-style: normal;
+  margin: 0;
+}
+
+/* Dot separator between reviewer and product */
+.carousel-testimonial-slide-attribution .ct-separator {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 50%);
+  flex-shrink: 0;
+}
+
+/* Product name — Inter font, orange */
+.carousel-testimonial-slide-attribution .ct-product {
+  font-family: inter, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #f5822d;
+  margin: 0;
+}
+
+/* Hide original paragraphs (replaced by attribution row) */
+.carousel-testimonial-slide-content > p {
+  display: none;
+}
+
+/* ── Play button — orange circle with triangle ── */
+.carousel-testimonial-play-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #f5822d;
+  border: 0;
+  cursor: pointer;
+  transition: background 0.2s;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.carousel-testimonial-play-btn:hover {
+  background: #e0711f;
+}
+
+/* Play triangle via CSS border trick */
+.carousel-testimonial-play-btn::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12px 0 12px 20px;
+  border-color: transparent transparent transparent #fff;
+  margin-left: 4px;
+}
+
+/* ── Hide slide indicators (no dots, arrows only) ── */
+.carousel-testimonial-slide-indicators {
+  display: none;
+}
+
+/* ── Navigation arrows — orange circle with white chevron ── */
+.carousel-testimonial-navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: 2;
+  pointer-events: none;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.carousel-testimonial-navigation-buttons button {
+  pointer-events: all;
+  border: none;
+  background: transparent;
+  width: 33px;
+  height: 33px;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.carousel-testimonial-navigation-buttons button:hover {
+  opacity: 0.7;
+}
+
+/* ── Tablet+ : content positioned on right half ── */
+@media (width >= 600px) {
+  .carousel-testimonial-slide {
+    min-height: 500px;
+  }
+
+  .carousel-testimonial-slide-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    min-height: 100%;
+    padding: 50px 60px 50px 40px;
+    background: linear-gradient(to right, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 50%) 30%);
+  }
+
+  .carousel-testimonial-slide-content h3 {
+    font-size: 2.5rem;
+  }
+
+  .carousel-testimonial-slide-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .carousel-testimonial-navigation-buttons {
+    padding: 0 40px;
+  }
+}
+
+/* ── Desktop ── */
+@media (width >= 900px) {
+  .carousel-testimonial-slide {
+    min-height: 640px;
+  }
+
+  .carousel-testimonial-slide-content {
+    padding: 60px 80px 60px 60px;
+  }
+
+  .carousel-testimonial-slide-content h3 {
+    font-size: 3.125rem;
+    line-height: 1;
+    margin: 0 0 32px;
+  }
+
+  .carousel-testimonial-slide-content h2 {
+    font-size: 1.875rem;
+    line-height: 1.4;
+  }
+
+  .carousel-testimonial-slide-attribution .ct-reviewer {
+    font-size: 1.25rem;
+  }
+
+  .carousel-testimonial-slide-attribution .ct-product {
+    font-size: 1.125rem;
+  }
+
+  .carousel-testimonial-navigation-buttons {
+    padding: 0 60px;
+  }
+}

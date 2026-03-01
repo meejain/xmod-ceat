@@ -1,0 +1,31 @@
+{
+  "variantName": "cards-stories",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-03-01T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.ceat.com/",
+    "originPage": "homepage",
+    "blockPosition": "mid-page"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "wide",
+    "purpose": "stories",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "Horizontally scrollable circular image cards for stories or travel destinations with label text below",
+    "buttonCount": 0,
+    "imageCount": 8
+  },
+  "reuseGuidance": {
+    "suitableFor": ["homepage", "destination-pages", "explore-pages", "gallery-pages"],
+    "notSuitableFor": ["form-pages", "product-detail", "checkout"]
+  },
+  "usage": {
+    "pagesUsing": ["content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-03-01T00:00:00.000Z"
+  }
+}

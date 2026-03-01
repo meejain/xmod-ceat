@@ -1,0 +1,31 @@
+{
+  "variantName": "columns-finder",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-03-01T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.ceat.com/",
+    "originPage": "homepage",
+    "blockPosition": "above-fold"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "search-widget",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "Two-column layout with a tyre finder search widget containing dropdowns and a search button",
+    "buttonCount": 1,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": ["homepage", "product-finder", "search-pages", "landing-pages"],
+    "notSuitableFor": ["article-pages", "about-us", "contact-pages"]
+  },
+  "usage": {
+    "pagesUsing": ["content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-03-01T00:00:00.000Z"
+  }
+}

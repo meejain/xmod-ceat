@@ -1,0 +1,31 @@
+{
+  "variantName": "cards-trends",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-03-01T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.ceat.com/",
+    "originPage": "homepage",
+    "blockPosition": "below-fold"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "wide",
+    "purpose": "trends",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "Grid of content or video trend cards with 16:9 thumbnail images, category tags, title, and description",
+    "buttonCount": 0,
+    "imageCount": 6
+  },
+  "reuseGuidance": {
+    "suitableFor": ["homepage", "blog-listing", "news-pages", "media-pages"],
+    "notSuitableFor": ["product-detail", "form-pages", "checkout"]
+  },
+  "usage": {
+    "pagesUsing": ["content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-03-01T00:00:00.000Z"
+  }
+}

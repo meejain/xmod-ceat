@@ -1,0 +1,86 @@
+{
+  "templates": [
+    {
+      "name": "ceat-homepage",
+      "urls": [
+        "https://www.ceat.com/"
+      ],
+      "description": "CEAT homepage with hero banner carousel, tyre finder, product cards, travel stories, dealer locator, brand tabs, expert testimonials, trends, FAQ, SEO content, and action cards",
+      "blocks": [
+        {
+          "name": "carousel-banner",
+          "instances": [
+            ".hero-banner-teaser"
+          ]
+        },
+        {
+          "name": "columns-finder",
+          "instances": [
+            ".ceat-makemodel-search-v2"
+          ]
+        },
+        {
+          "name": "cards-product",
+          "instances": [
+            ".card-blogs-container"
+          ]
+        },
+        {
+          "name": "columns-promo",
+          "instances": [
+            ".banner-teaser.banner-card-campaign"
+          ]
+        },
+        {
+          "name": "cards-stories",
+          "instances": [
+            ".instagram-stories"
+          ]
+        },
+        {
+          "name": "columns-locator",
+          "instances": [
+            ".locate-store-container"
+          ]
+        },
+        {
+          "name": "tabs-brands",
+          "instances": [
+            ".tabsproxy.tabs-container"
+          ]
+        },
+        {
+          "name": "carousel-testimonial",
+          "instances": [
+            ".video-carousel-teaser"
+          ],
+          "section": "dark"
+        },
+        {
+          "name": "cards-trends",
+          "instances": [
+            ".videos-ux-three"
+          ]
+        },
+        {
+          "name": "accordion-faq",
+          "instances": [
+            ".faq-accordion.faq-sec"
+          ]
+        },
+        {
+          "name": "accordion-seo",
+          "instances": [
+            ".sec-accordion"
+          ]
+        },
+        {
+          "name": "cards-action",
+          "instances": [
+            ".helpful-layout-container"
+          ]
+        }
+      ]
+    }
+  ]
+}

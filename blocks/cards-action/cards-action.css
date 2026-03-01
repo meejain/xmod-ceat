@@ -1,0 +1,123 @@
+/* stylelint-disable no-descending-specificity */
+
+/* cards-action — dark action link cards with orange arrow (CEAT style) */
+
+.cards-action-container {
+  padding: 60px 0 40px;
+}
+
+.cards-action-container .cards-action-wrapper {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.cards-action ul {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.cards-action ul > li {
+  position: relative;
+  border: 1px solid #d6d6d6;
+  border-radius: 5px;
+  background: #333;
+  padding: 24px 20px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.cards-action ul > li:hover {
+  box-shadow: 0 4px 12px rgb(0 0 0 / 25%);
+}
+
+.cards-action .cards-action-card-image {
+  display: none;
+}
+
+.cards-action .cards-action-card-body {
+  padding: 0;
+  text-align: left;
+}
+
+.cards-action .cards-action-card-body h2,
+.cards-action .cards-action-card-body p strong {
+  font-family: poppins, sans-serif;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+
+.cards-action .cards-action-card-body p {
+  margin: 0 0 8px;
+  font-family: poppins, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.cards-action .cards-action-card-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Action link — hidden text, replaced by orange circle arrow */
+.cards-action .cards-action-card-body a {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f5822d;
+  color: transparent;
+  font-size: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.cards-action .cards-action-card-body a::after {
+  content: '\203A';
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.cards-action .cards-action-card-body a:hover {
+  background: #e0741f;
+  text-decoration: none;
+}
+
+/* ── Tablet / Desktop — 3 columns ── */
+@media (width >= 600px) {
+  .cards-action ul {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (width >= 900px) {
+  .cards-action-container .cards-action-wrapper {
+    padding: 0 48px;
+  }
+
+  .cards-action .cards-action-card-body h2,
+  .cards-action .cards-action-card-body p strong {
+    font-size: 1.625rem;
+  }
+
+  .cards-action .cards-action-card-body p {
+    font-size: 1rem;
+  }
+}

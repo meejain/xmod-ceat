@@ -1,0 +1,99 @@
+/* cards-stories — video story cards with play button overlay (CEAT style) */
+
+/* Section heading style when cards-stories is present */
+.section:has(.cards-stories) h2 {
+  font-size: 32px;
+  font-weight: 400;
+  color: #333;
+  margin: 35px 0 20px;
+}
+
+.section:has(.cards-stories) h2 .heading-accent {
+  display: inline-block;
+  border-bottom: 5px solid #f5822d;
+  padding-bottom: 4px;
+}
+
+.cards-stories-container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.cards-stories ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.cards-stories ul > li {
+  flex: 0 0 calc(50% - 8px);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.cards-stories .cards-stories-card-image {
+  line-height: 0;
+  overflow: hidden;
+}
+
+.cards-stories .cards-stories-card-image picture > img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 191 / 347;
+}
+
+/* Play button overlay — circle */
+.cards-stories ul > li::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 47px;
+  height: 47px;
+  background: rgb(0 0 0 / 50%);
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Play button overlay — triangle */
+.cards-stories ul > li::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 9px 0 9px 16px;
+  border-color: transparent transparent transparent #fff;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Hide body text — images speak for themselves */
+.cards-stories .cards-stories-card-body {
+  display: none;
+}
+
+/* Tablet: 3 columns */
+@media (width >= 600px) {
+  .cards-stories ul > li {
+    flex: 0 0 calc(33.333% - 10px);
+  }
+}
+
+/* Desktop: 5 columns */
+@media (width >= 900px) {
+  .cards-stories ul > li {
+    flex: 0 0 calc(20% - 12px);
+  }
+}

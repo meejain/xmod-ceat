@@ -1,0 +1,31 @@
+{
+  "variantName": "cards-action",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-03-01T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.ceat.com/",
+    "originPage": "homepage",
+    "blockPosition": "below-fold"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "quick-actions",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "Text-only action link cards in a compact grid layout with no images, just labels and links",
+    "buttonCount": 6,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": ["homepage", "navigation-pages", "dashboard-pages", "service-pages"],
+    "notSuitableFor": ["article-pages", "media-gallery", "product-detail"]
+  },
+  "usage": {
+    "pagesUsing": ["content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-03-01T00:00:00.000Z"
+  }
+}

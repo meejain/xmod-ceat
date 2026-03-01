@@ -1,4 +1,65 @@
 /* stylelint-disable max-line-length */
+
+/* Poppins — site default */
+@font-face {
+  font-family: poppins;
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('../fonts/Poppins-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: poppins;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/Poppins-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/Poppins-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/Poppins-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: poppins;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/Poppins-Bold.woff2') format('woff2');
+}
+
+/* Caveat — handwriting style for testimonial reviewer names */
+@font-face {
+  font-family: caveat;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/Caveat-Regular.woff2') format('woff2');
+}
+
+/* Inter — for product names */
+@font-face {
+  font-family: inter;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/Inter-Regular.woff2') format('woff2');
+}
+
+/* Roboto — legacy */
 @font-face {
   font-family: roboto-condensed;
   font-style: normal;

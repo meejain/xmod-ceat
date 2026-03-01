@@ -1,0 +1,163 @@
+/* stylelint-disable no-descending-specificity */
+
+/* accordion-seo — SEO content card with nested expandable sections (CEAT style) */
+
+.accordion-seo-container {
+  padding: 0 0 60px;
+}
+
+.accordion-seo-container .accordion-seo-wrapper {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Outer bordered card ── */
+.accordion-seo .accordion-seo-outer {
+  border: 1px solid #d6d6d6;
+  border-radius: 5px;
+  padding: 20px 24px;
+  background: #fff;
+}
+
+/* ── Outer header (main title) ── */
+.accordion-seo .accordion-seo-header {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: poppins, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #333;
+  line-height: 1.32;
+}
+
+.accordion-seo .accordion-seo-header p {
+  margin: 0;
+}
+
+.accordion-seo .accordion-seo-header::after {
+  content: '+';
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #333;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.accordion-seo .accordion-seo-outer[open] > .accordion-seo-header::after {
+  content: '\2212';
+}
+
+.accordion-seo .accordion-seo-header::-webkit-details-marker {
+  display: none;
+}
+
+/* ── Intro content (paragraph below main title) ── */
+.accordion-seo .accordion-seo-intro {
+  margin: 12px 0 16px;
+  font-family: poppins, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #4f4f4f;
+  line-height: 1.5;
+}
+
+.accordion-seo .accordion-seo-intro p {
+  margin: 0 0 12px;
+}
+
+.accordion-seo .accordion-seo-intro p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Nested sub-accordion container ── */
+.accordion-seo .accordion-seo-nested {
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Sub-accordion items ── */
+.accordion-seo .accordion-seo-sub-item {
+  border-bottom: 1px solid #d6d6d6;
+}
+
+/* ── Sub-accordion label ── */
+.accordion-seo .accordion-seo-sub-label {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  font-family: poppins, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+  line-height: 1.32;
+}
+
+.accordion-seo .accordion-seo-sub-label p {
+  margin: 0;
+}
+
+.accordion-seo .accordion-seo-sub-label::after {
+  content: '+';
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #333;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.accordion-seo .accordion-seo-sub-item[open] > .accordion-seo-sub-label::after {
+  content: '\2212';
+}
+
+.accordion-seo .accordion-seo-sub-label::-webkit-details-marker {
+  display: none;
+}
+
+/* ── Sub-accordion body ── */
+.accordion-seo .accordion-seo-sub-body {
+  padding: 0 0 16px;
+  font-family: poppins, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #4f4f4f;
+  line-height: 1.7;
+}
+
+.accordion-seo .accordion-seo-sub-body p {
+  margin: 0 0 12px;
+}
+
+.accordion-seo .accordion-seo-sub-body p:last-child {
+  margin-bottom: 0;
+}
+
+.accordion-seo .accordion-seo-sub-body a {
+  color: #f5822d;
+  text-decoration: none;
+}
+
+.accordion-seo .accordion-seo-sub-body a:hover {
+  text-decoration: underline;
+}
+
+/* ── Desktop ── */
+@media (width >= 900px) {
+  .accordion-seo-container .accordion-seo-wrapper {
+    padding: 0 48px;
+  }
+
+  .accordion-seo .accordion-seo-outer {
+    padding: 20px 40px;
+  }
+
+  .accordion-seo .accordion-seo-header {
+    font-size: 1.25rem;
+  }
+}

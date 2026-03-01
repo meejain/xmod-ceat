@@ -1,0 +1,31 @@
+{
+  "variantName": "cards-social",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-03-01T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.ceat.com/",
+    "originPage": "homepage",
+    "blockPosition": "below-fold"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "wide",
+    "purpose": "social-media",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "Grid of social media cards with 1:1 images, profile avatar, username, share overlay, and video modal",
+    "buttonCount": 0,
+    "imageCount": 25
+  },
+  "reuseGuidance": {
+    "suitableFor": ["homepage", "social-media-pages", "community-pages"],
+    "notSuitableFor": ["product-detail", "form-pages", "checkout"]
+  },
+  "usage": {
+    "pagesUsing": ["content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-03-01T00:00:00.000Z"
+  }
+}

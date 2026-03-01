@@ -1,0 +1,391 @@
+/* stylelint-disable no-descending-specificity */
+
+/* carousel-banner — full-width hero banner carousel matching CEAT original */
+
+/* Section: remove default padding so carousel is edge-to-edge */
+.carousel-banner-container {
+  padding: 0;
+}
+
+.carousel-banner-container .carousel-banner-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.carousel-banner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ── Viewport toggling: desktop vs mobile carousel ── */
+
+/* Desktop carousel hidden on mobile */
+.carousel-banner:not(.mobile) {
+  display: none;
+}
+
+/* Mobile carousel shown on mobile by default */
+.carousel-banner.mobile {
+  display: block;
+}
+
+.carousel-banner-slides-container {
+  position: relative;
+}
+
+.carousel-banner-slides {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.carousel-banner-slides::-webkit-scrollbar {
+  display: none;
+}
+
+/* Each slide: image fills entire area */
+.carousel-banner-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 350px;
+}
+
+.carousel-banner-slide-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.carousel-banner-slide-image picture,
+.carousel-banner-slide-image picture > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Content overlay — only visible when slide has a link/CTA */
+.carousel-banner-slide-content {
+  position: relative;
+  z-index: 1;
+  padding: 40px 24px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 350px;
+}
+
+/* Only show gradient when there is actual content (link) */
+.carousel-banner-slide-content:not(.carousel-banner-slide-content-empty) {
+  background: linear-gradient(to right, rgb(0 0 0 / 40%) 0%, transparent 70%);
+}
+
+/* Hide empty content columns entirely */
+.carousel-banner-slide-content-empty {
+  display: none;
+}
+
+.carousel-banner-slide-content h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin: 0 0 8px;
+}
+
+.carousel-banner-slide-content p {
+  color: rgb(255 255 255 / 85%);
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+}
+
+.carousel-banner-slide-content .button-wrapper {
+  margin: 0;
+}
+
+.carousel-banner-slide-content a.button {
+  background: #f5822d;
+  border-color: #f5822d;
+  color: #fff;
+  border-radius: 4px;
+  padding: 8px 24px;
+  font-size: 0.875rem;
+}
+
+/* ── Prev / Next arrows: left & right edges, vertically centered ── */
+.carousel-banner .slide-prev,
+.carousel-banner .slide-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0;
+  transition: opacity 0.2s;
+}
+
+.carousel-banner .slide-prev {
+  left: 8px;
+}
+
+.carousel-banner .slide-next {
+  right: 8px;
+}
+
+.carousel-banner .slide-prev svg,
+.carousel-banner .slide-next svg {
+  width: 36px;
+  height: 36px;
+}
+
+.carousel-banner .slide-prev:hover,
+.carousel-banner .slide-next:hover {
+  opacity: 0.8;
+}
+
+/* ── Controls bar: play + indicators at bottom-left ── */
+.carousel-banner-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+  bottom: 16px;
+  left: 24px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel-banner-controls > * {
+  pointer-events: all;
+}
+
+/* Play button — circular orange with play triangle */
+.carousel-banner-play {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+}
+
+.carousel-banner-play svg {
+  width: 42px;
+  height: 42px;
+}
+
+.carousel-banner-play:hover {
+  opacity: 0.85;
+}
+
+/* Indicators: thin horizontal bars */
+.carousel-banner-slide-indicators {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-banner-slide-indicator button {
+  width: 20px;
+  height: 2px;
+  border-radius: 0;
+  border: none;
+  padding: 5px 0;
+  cursor: pointer;
+  background-color: transparent;
+  background-clip: content-box;
+  transition: width 0.3s, background-color 0.3s;
+}
+
+/* Visible bar via ::before pseudo-element */
+.carousel-banner-slide-indicator button::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.3s, background-color 0.3s;
+}
+
+.carousel-banner-slide-indicator button:disabled {
+  width: 40px;
+  cursor: default;
+}
+
+.carousel-banner-slide-indicator button:disabled::before {
+  background-color: #f5822d;
+}
+
+/* ── Video modal ── */
+.carousel-banner-video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgb(0 0 0 / 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.carousel-banner-video-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.carousel-banner-video-modal-content {
+  position: relative;
+  width: 90vw;
+  max-width: 900px;
+}
+
+.carousel-banner-video-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.carousel-banner-video-close:hover {
+  opacity: 0.7;
+}
+
+.carousel-banner-video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.carousel-banner-video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ── Desktop: show desktop carousel, hide mobile ── */
+@media (width >= 600px) {
+  .carousel-banner:not(.mobile) {
+    display: block;
+  }
+
+  .carousel-banner.mobile {
+    display: none;
+  }
+
+  .carousel-banner-slide {
+    min-height: 440px;
+  }
+
+  .carousel-banner-slide-content {
+    min-height: 440px;
+    padding: 60px 48px;
+  }
+
+  .carousel-banner-slide-content h2 {
+    font-size: 2rem;
+  }
+
+  .carousel-banner .slide-prev {
+    left: 12px;
+  }
+
+  .carousel-banner .slide-next {
+    right: 12px;
+  }
+
+  .carousel-banner .slide-prev svg,
+  .carousel-banner .slide-next svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-banner .slide-prev,
+  .carousel-banner .slide-next {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-banner-controls {
+    bottom: 20px;
+    left: 48px;
+    gap: 10px;
+  }
+
+  .carousel-banner-play {
+    width: 55px;
+    height: 55px;
+  }
+
+  .carousel-banner-play svg {
+    width: 55px;
+    height: 55px;
+  }
+
+  .carousel-banner-slide-indicator button {
+    width: 20px;
+  }
+
+  .carousel-banner-slide-indicator button:disabled {
+    width: 40px;
+  }
+}
+
+@media (width >= 900px) {
+  .carousel-banner-slide-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .carousel-banner-slide-content p {
+    font-size: 1.1rem;
+  }
+
+  .carousel-banner .slide-prev {
+    left: 16px;
+  }
+
+  .carousel-banner .slide-next {
+    right: 16px;
+  }
+
+  .carousel-banner-controls {
+    bottom: 24px;
+    left: 120px;
+    gap: 12px;
+  }
+}
