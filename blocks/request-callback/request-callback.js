@@ -134,6 +134,6 @@ export default function initRequestCallback() {
     if (e.key === 'Escape') closePanel();
   });
 
-  // Auto-open panel on page load after a short delay
-  setTimeout(openPanel, 1500);
+  // Auto-open panel on page load
+  openPanel();
 }

@@ -173,6 +173,10 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
+
+  // Request a Callback — load immediately with page
+  loadCSS(`${window.hlx.codeBasePath}/blocks/request-callback/request-callback.css`);
+  import('../blocks/request-callback/request-callback.js').then((mod) => mod.default());
 }
 
 /**
