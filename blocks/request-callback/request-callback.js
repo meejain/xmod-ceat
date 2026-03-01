@@ -133,4 +133,7 @@ export default function initRequestCallback() {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closePanel();
   });
+
+  // Auto-open panel on page load after a short delay
+  setTimeout(openPanel, 1500);
 }
