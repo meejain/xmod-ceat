@@ -19,6 +19,13 @@
   padding-bottom: 0;
 }
 
+.cards-stories-container .default-content-wrapper,
+.cards-stories-container .cards-stories-wrapper {
+  max-width: 1020px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
 .cards-stories ul {
   list-style: none;
   margin: 0;

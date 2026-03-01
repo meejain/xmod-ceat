@@ -10,6 +10,7 @@
   max-width: 1020px;
   margin: 0 auto;
   padding: 0 24px;
+  z-index: 1;
 }
 
 .accordion-faq-container h2 {
@@ -30,6 +31,7 @@
   max-width: 1020px;
   margin: 0 auto;
   padding: 0 24px;
+  z-index: 1;
 }
 
 /* ── Individual FAQ item ── */

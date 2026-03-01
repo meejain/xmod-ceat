@@ -9,9 +9,10 @@ main > .columns-finder-container {
 }
 
 .columns-finder-container .columns-finder-wrapper {
-  max-width: 780px;
+  max-width: 1020px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 24px;
+  z-index: 1;
 }
 
 .columns-finder {

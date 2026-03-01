@@ -4,10 +4,17 @@
   padding: 40px 0 60px;
 }
 
+.cards-trends-container .default-content-wrapper {
+  max-width: 1020px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
 .cards-trends-container .cards-trends-wrapper {
-  max-width: 1200px;
-  margin: auto;
+  max-width: 1020px;
+  margin: 0 auto;
   padding: 0 24px;
+  z-index: 1;
 }
 
 /* ── Section heading — "Trends" with orange underline ── */

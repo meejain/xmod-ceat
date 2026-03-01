@@ -6,10 +6,17 @@
   padding: 0 0 60px;
 }
 
+.accordion-seo-container .default-content-wrapper {
+  max-width: 1020px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
 .accordion-seo-container .accordion-seo-wrapper {
   max-width: 1020px;
   margin: 0 auto;
   padding: 0 24px;
+  z-index: 1;
 }
 
 /* ── Outer bordered card ── */

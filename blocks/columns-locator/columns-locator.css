@@ -19,6 +19,13 @@
   padding-bottom: 0;
 }
 
+.columns-locator-container .default-content-wrapper,
+.columns-locator-container .columns-locator-wrapper {
+  max-width: 1020px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
 /* ── Two-column layout ── */
 .columns-locator {
   display: flex;

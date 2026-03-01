@@ -19,6 +19,13 @@
   padding-bottom: 0;
 }
 
+.tabs-brands-container .default-content-wrapper,
+.tabs-brands-container .tabs-brands-wrapper {
+  max-width: 1020px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
 /* ── Pill tab list ── */
 .tabs-brands .tabs-brands-list {
   display: flex;
