@@ -1,0 +1,206 @@
+/* columns-locator — tyre shop locator with pincode search & stats (CEAT style) */
+
+/* Section heading */
+.section:has(.columns-locator) h2 {
+  font-size: 32px;
+  font-weight: 400;
+  color: #333;
+  margin: 35px 0 20px;
+}
+
+.section:has(.columns-locator) h2 .heading-accent {
+  display: inline-block;
+  border-bottom: 5px solid #f5822d;
+  padding-bottom: 4px;
+}
+
+.columns-locator-container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* ── Two-column layout ── */
+.columns-locator {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Left column: search + cities ── */
+.columns-locator .cl-left {
+  background: #f8f8f8;
+  padding: 40px;
+  border-radius: 5px;
+}
+
+/* Pincode search bar */
+.columns-locator .cl-search {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d6d6d6;
+  border-radius: 30px;
+  padding: 0 16px;
+  height: 44px;
+  background: #fff;
+}
+
+.columns-locator .cl-icon-location {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+
+.columns-locator .cl-pincode-input {
+  flex: 1;
+  border: 0;
+  outline: none;
+  font-size: 14px;
+  color: #333;
+  background: transparent;
+}
+
+.columns-locator .cl-pincode-input::placeholder {
+  color: #999;
+}
+
+.columns-locator .cl-search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+/* Helper text area — darker grey sub-area */
+.columns-locator .cl-helper-area {
+  background: #f0f0f0;
+  margin: 16px 0 0;
+}
+
+.columns-locator .cl-helper {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  text-align: center;
+  margin: 0;
+  padding: 44px 20px;
+}
+
+/* Separator */
+.columns-locator .cl-separator {
+  border: 0;
+  border-top: 1px solid #e0e0e0;
+  margin: 20px 0;
+}
+
+/* Cities title */
+.columns-locator .cl-cities-title {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000;
+  margin: 0 0 12px;
+}
+
+/* City pill links */
+.columns-locator .cl-cities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.columns-locator .cl-city-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d6d6d6;
+  border-radius: 40px;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  background: transparent;
+  line-height: 1;
+}
+
+.columns-locator .cl-city-pill:hover {
+  background: #f5f5f5;
+  color: #333;
+  text-decoration: none;
+}
+
+/* ── Right column: image + stats overlay ── */
+.columns-locator .cl-right {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.columns-locator .cl-image {
+  line-height: 0;
+  height: 100%;
+}
+
+.columns-locator .cl-image picture,
+.columns-locator .cl-image picture > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Stats overlaid at bottom of image */
+.columns-locator .cl-stats {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #383836;
+  display: flex;
+}
+
+.columns-locator .cl-stat {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px 20px;
+}
+
+.columns-locator .cl-stat h3 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  font-family: var(--heading-font-family);
+}
+
+.columns-locator .cl-stat p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  margin: 4px 0 0;
+  line-height: 1.4;
+}
+
+/* ── Desktop: side-by-side ── */
+@media (width >= 900px) {
+  .columns-locator {
+    flex-direction: row;
+    gap: 30px;
+    align-items: stretch;
+  }
+
+  .columns-locator .cl-left {
+    width: 55%;
+    flex: none;
+  }
+
+  .columns-locator .cl-right {
+    width: 45%;
+    flex: none;
+  }
+
+}

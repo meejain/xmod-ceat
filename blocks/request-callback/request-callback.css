@@ -1,0 +1,284 @@
+/* request-callback - fixed sticky tab + slide-in form panel */
+
+/* Sticky tab on right edge */
+.request-callback-tab {
+  position: fixed;
+  right: -77px;
+  top: 50%;
+  transform: rotate(-90deg);
+  z-index: 100;
+  cursor: pointer;
+  width: 190px;
+  height: 37px;
+}
+
+.request-callback-tab-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #f5822d;
+  color: #fff;
+  width: 190px;
+  height: 37px;
+  border-radius: 8px 8px 0 0;
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.request-callback-tab-inner:hover {
+  background: #e0721f;
+}
+
+.request-callback-tab-inner svg {
+  width: 16px;
+  height: 16px;
+  fill: #fff;
+}
+
+/* Overlay backdrop */
+.request-callback-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgb(0 0 0 / 40%);
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.request-callback-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Slide-in panel */
+.request-callback-panel {
+  position: fixed;
+  top: 0;
+  right: -460px;
+  width: 455px;
+  max-width: 90vw;
+  height: 100vh;
+  background: #fff;
+  z-index: 201;
+  overflow-y: auto;
+  box-shadow: -4px 0 20px rgb(0 0 0 / 15%);
+  transition: right 0.3s ease;
+}
+
+.request-callback-panel.active {
+  right: 0;
+}
+
+.request-callback-panel-content {
+  padding: 26px 34px;
+}
+
+/* Panel header */
+.request-callback-panel h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 24px;
+}
+
+.request-callback-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #666;
+  transition: color 0.2s;
+}
+
+.request-callback-close:hover {
+  color: #000;
+}
+
+/* Form fields */
+.request-callback-field {
+  margin-bottom: 16px;
+}
+
+.request-callback-field label {
+  display: block;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.request-callback-field input[type="text"],
+.request-callback-field input[type="email"],
+.request-callback-field input[type="tel"],
+.request-callback-field select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.request-callback-field input:focus,
+.request-callback-field select:focus {
+  border-color: #f5822d;
+}
+
+/* Checkbox row */
+.request-callback-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.request-callback-checkbox input[type="checkbox"] {
+  accent-color: #f5822d;
+  width: 16px;
+  height: 16px;
+}
+
+.request-callback-checkbox p {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+}
+
+/* Vehicle type tabs */
+.request-callback-vehicle-type {
+  margin-bottom: 16px;
+}
+
+.request-callback-vehicle-type label {
+  display: block;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.request-callback-vehicle-tabs {
+  display: flex;
+  gap: 24px;
+}
+
+.request-callback-vehicle-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 4px 8px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  font-size: 12px;
+  color: #333;
+  cursor: pointer;
+  background: #fff;
+  transition: border-color 0.2s, color 0.2s;
+  min-width: 56px;
+}
+
+.request-callback-vehicle-tab .rc-icon {
+  width: 51px;
+  height: 22px;
+  color: #333;
+}
+
+.request-callback-vehicle-tab .rc-icon-active {
+  display: none;
+}
+
+.request-callback-vehicle-tab .rc-icon-normal {
+  display: block;
+}
+
+.request-callback-vehicle-tab.active {
+  border-bottom-color: #f5822d;
+  background: #fff;
+  color: #333;
+}
+
+.request-callback-vehicle-tab.active .rc-icon-active {
+  display: block;
+}
+
+.request-callback-vehicle-tab.active .rc-icon-normal {
+  display: none;
+}
+
+/* Submit button */
+.request-callback-submit {
+  width: 100%;
+  padding: 10px 20px;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+.request-callback-submit:hover {
+  background: #222;
+}
+
+/* Terms & conditions text */
+.request-callback-terms {
+  font-size: 12px;
+  color: #333;
+  line-height: 1.4;
+  margin: 16px 0 0;
+}
+
+.request-callback-terms a {
+  color: #333;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Mobile adjustments */
+@media (width < 600px) {
+  .request-callback-tab {
+    right: -82px;
+    top: 40%;
+    width: 170px;
+    height: 32px;
+  }
+
+  .request-callback-tab-inner {
+    width: 170px;
+    height: 32px;
+    font-size: 12px;
+    border-radius: 6px 6px 0 0;
+  }
+
+  .request-callback-panel {
+    width: 100vw;
+    max-width: 100vw;
+    right: -100vw;
+  }
+
+  .request-callback-panel-content {
+    padding: 20px;
+  }
+}

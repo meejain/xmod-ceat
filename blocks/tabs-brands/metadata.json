@@ -1,0 +1,31 @@
+{
+  "variantName": "tabs-brands",
+  "baseBlock": "tabs",
+  "version": "1.0.0",
+  "created": "2026-03-01T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.ceat.com/",
+    "originPage": "homepage",
+    "blockPosition": "mid-page"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "brand-showcase",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "Tabbed interface with vehicle category tabs displaying brand logos in a grid within each tab panel",
+    "buttonCount": 0,
+    "imageCount": 12
+  },
+  "reuseGuidance": {
+    "suitableFor": ["homepage", "brand-pages", "partner-pages", "product-listing"],
+    "notSuitableFor": ["article-pages", "form-pages", "checkout"]
+  },
+  "usage": {
+    "pagesUsing": ["content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-03-01T00:00:00.000Z"
+  }
+}

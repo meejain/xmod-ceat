@@ -1,0 +1,121 @@
+/* tabs-brands — trusted companies with pill tabs (CEAT style) */
+
+/* Section heading */
+.section:has(.tabs-brands) h2 {
+  font-size: 32px;
+  font-weight: 400;
+  color: #333;
+  margin: 35px 0 20px;
+}
+
+.section:has(.tabs-brands) h2 .heading-accent {
+  display: inline-block;
+  border-bottom: 5px solid #f5822d;
+  padding-bottom: 4px;
+}
+
+.tabs-brands-container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* ── Pill tab list ── */
+.tabs-brands .tabs-brands-list {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding: 0;
+  border: 0;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.tabs-brands .tabs-brands-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Pill tab button — inactive */
+.tabs-brands .tabs-brands-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  border: 0;
+  border-radius: 40px;
+  background: rgb(217 217 217 / 40%);
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  white-space: nowrap;
+  color: #333;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Pill tab button — active */
+.tabs-brands .tabs-brands-tab[aria-selected="true"] {
+  background: #333;
+  color: #fff;
+}
+
+.tabs-brands .tabs-brands-tab:hover {
+  background: rgb(217 217 217 / 70%);
+  color: #333;
+}
+
+.tabs-brands .tabs-brands-tab[aria-selected="true"]:hover {
+  background: #333;
+  color: #fff;
+}
+
+/* ── Tab panels ── */
+.tabs-brands .tabs-brands-panel {
+  padding: 0;
+}
+
+.tabs-brands .tabs-brands-panel[aria-hidden="true"] {
+  display: none;
+}
+
+/* Grey brand area */
+.tabs-brands .tabs-brands-brand-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: #f8f8f8;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  padding: 35px 0;
+}
+
+/* Individual brand item with right divider */
+.tabs-brands .tabs-brands-brand-item {
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid #dcdcdc;
+  padding: 2px 0;
+}
+
+.tabs-brands .tabs-brands-brand-item:last-child {
+  border-right: 0;
+}
+
+/* Brand link text */
+.tabs-brands .tabs-brands-brand-item a {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.tabs-brands .tabs-brands-brand-item a:hover {
+  color: #f5822d;
+  text-decoration: none;
+}
+
+/* Hide original panel content that hasn't been processed */
+.tabs-brands .tabs-brands-panel > div:not(.tabs-brands-brand-list) {
+  display: none;
+}

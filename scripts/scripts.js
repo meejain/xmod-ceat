@@ -25,6 +25,11 @@ function buildHeroBlock(main) {
     if (h1.closest('.hero') || picture.closest('.hero')) {
       return; // Don't create a duplicate hero block
     }
+    // Only create hero if h1 and picture are in the same section
+    const h1Section = [...main.children].find((s) => s.contains(h1));
+    const picSection = [...main.children].find((s) => s.contains(picture));
+    if (h1Section !== picSection) return;
+
     const section = document.createElement('div');
     section.append(buildBlock('hero', { elems: [picture, h1] }));
     main.prepend(section);
