@@ -1,20 +1,256 @@
+/* stylelint-disable no-descending-specificity */
+
+/* CEAT Footer — white background, centered content, dark text */
+
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background-color: #fff;
+  font-family: poppins, sans-serif;
+  font-size: 14px;
+  color: #333;
 }
 
 footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  margin: 0 auto;
+  max-width: 1020px;
+  padding: 0 24px;
 }
 
 footer .footer p {
   margin: 0;
 }
 
+/* ── Row 1: Follow Us + Social Icons ── */
+footer .footer .footer-social {
+  text-align: center;
+  padding: 40px 0 30px;
+}
+
+footer .footer .footer-social p:first-child {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+footer .footer .footer-social .footer-social-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer .footer .footer-social .footer-social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: #888;
+  text-decoration: none;
+  font-size: 0;
+  transition: color 0.2s;
+}
+
+footer .footer .footer-social .footer-social-links a:hover {
+  color: #f5822d;
+}
+
+/* Social icon SVGs injected by JS */
+footer .footer .footer-social .footer-social-links a svg {
+  width: 24px;
+  height: 24px;
+  fill: currentcolor;
+}
+
+/* ── Separator line ── */
+footer .footer .footer-separator {
+  border: 0;
+  border-top: 1px dashed #ccc;
+  margin: 0;
+}
+
+/* ── Row 2: 4-Column Navigation ── */
+footer .footer .footer-nav {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  padding: 40px 0;
+}
+
+footer .footer .footer-nav > div {
+  min-width: 0;
+}
+
+footer .footer .footer-nav h3 {
+  font-family: poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 16px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+footer .footer .footer-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer .footer .footer-nav ul li {
+  margin: 0 0 10px;
+}
+
+footer .footer .footer-nav ul li a {
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+footer .footer .footer-nav ul li a:hover {
+  color: #f5822d;
+  text-decoration: none;
+}
+
+/* ── Row 3: Tyre Links (horizontal, pipe-separated) ── */
+footer .footer .footer-tyre-links {
+  padding: 40px 0;
+  border-top: 1px dashed #ccc;
+}
+
+footer .footer .footer-tyre-links h3 {
+  font-family: poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 12px;
+}
+
+footer .footer .footer-tyre-links p {
+  line-height: 2.2;
+  font-size: 14px;
+  color: #333;
+}
+
+footer .footer .footer-tyre-links p a {
+  color: #333;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+footer .footer .footer-tyre-links p a:hover {
+  color: #f5822d;
+}
+
+/* ── Row 4: Accordion (tyre sizes) ── */
+footer .footer .footer-accordion {
+  border-top: 1px dashed #ccc;
+}
+
+footer .footer .footer-accordion details {
+  border-bottom: 1px dashed #ccc;
+}
+
+footer .footer .footer-accordion summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+footer .footer .footer-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+footer .footer .footer-accordion summary::after {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid #f5822d;
+  border-bottom: 2px solid #f5822d;
+  transform: rotate(45deg);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+footer .footer .footer-accordion details[open] summary::after {
+  transform: rotate(-135deg);
+}
+
+footer .footer .footer-accordion .accordion-content {
+  padding: 0 0 18px;
+  font-size: 14px;
+  line-height: 2;
+  color: #555;
+}
+
+footer .footer .footer-accordion .accordion-content a {
+  color: #555;
+  text-decoration: none;
+}
+
+footer .footer .footer-accordion .accordion-content a:hover {
+  color: #f5822d;
+}
+
+/* ── Row 5: Legal / BIS notice ── */
+footer .footer .footer-legal {
+  text-align: center;
+  padding: 30px 0 40px;
+  border-top: 1px dashed #ccc;
+}
+
+footer .footer .footer-legal p {
+  font-family: poppins, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #4d4c4c;
+  margin: 0 0 8px;
+  line-height: 1.6;
+}
+
+footer .footer .footer-legal p:last-child {
+  margin-bottom: 0;
+}
+
+footer .footer .footer-legal a {
+  color: #f5822d;
+  text-decoration: none;
+}
+
+footer .footer .footer-legal a:hover {
+  text-decoration: underline;
+}
+
+/* ── Tablet: 2-column nav ── */
+@media (width >= 600px) {
+  footer .footer .footer-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── Desktop: 4-column nav ── */
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding: 0 48px;
+  }
+
+  footer .footer .footer-nav {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
   }
 }

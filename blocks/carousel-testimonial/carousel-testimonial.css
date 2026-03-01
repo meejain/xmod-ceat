@@ -22,8 +22,7 @@
 
 .carousel-testimonial-slides {
   display: flex;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: auto hidden;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   list-style: none;

@@ -179,7 +179,7 @@ export default async function decorate(block) {
     playBtn.classList.add('carousel-banner-play');
     playBtn.setAttribute('aria-label', 'Play Video');
     playBtn.innerHTML = '<svg viewBox="0 0 55 55" width="55" height="55" fill="none">'
-      + '<circle cx="27.5" cy="27.5" r="27" fill="#F5822D"/>'
+      + '<circle cx="27.5" cy="27.5" r="27" stroke="#F5822D" stroke-width="2" fill="none"/>'
       + '<polygon points="23,16 23,39 40,27.5" fill="#fff"/>'
       + '</svg>';
     controlsBar.append(playBtn);
