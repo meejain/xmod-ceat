@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import { loadCSS } from '../../scripts/aem.js';
 
 function updateActiveSlide(slide) {
   const block = slide.closest('.carousel-testimonial');
@@ -81,9 +82,14 @@ function createSlide(row, slideIndex, carouselId) {
     slide.append(column);
   });
 
-  /* Build attribution row from the two paragraphs (reviewer + product) */
+  /* Extract video URL from link before transforming content */
   const content = slide.querySelector('.carousel-testimonial-slide-content');
   if (content) {
+    const videoLink = content.querySelector('a[href*="youtube"], a[href*="youtu.be"]');
+    const videoUrl = videoLink ? videoLink.href : '';
+    if (videoLink) videoLink.closest('p')?.remove();
+
+    /* Build attribution row from the two paragraphs (reviewer + product) */
     const paragraphs = [...content.querySelectorAll(':scope > p')];
     if (paragraphs.length >= 2) {
       const attribution = document.createElement('div');
@@ -104,12 +110,15 @@ function createSlide(row, slideIndex, carouselId) {
       content.append(attribution);
     }
 
-    /* Add play button */
-    const playBtn = document.createElement('button');
-    playBtn.classList.add('carousel-testimonial-play-btn');
-    playBtn.setAttribute('type', 'button');
-    playBtn.setAttribute('aria-label', 'Play video');
-    content.append(playBtn);
+    /* Add play button with video URL */
+    if (videoUrl) {
+      const playBtn = document.createElement('button');
+      playBtn.classList.add('carousel-testimonial-play-btn');
+      playBtn.setAttribute('type', 'button');
+      playBtn.setAttribute('aria-label', 'Play video');
+      playBtn.dataset.videoUrl = videoUrl;
+      content.append(playBtn);
+    }
   }
 
   const labeledBy = slide.querySelector('h1, h2, h3, h4, h5, h6');
@@ -178,4 +187,13 @@ export default async function decorate(block) {
   if (!isSingleSlide) {
     bindEvents(block);
   }
+
+  /* Wire play buttons to video modal */
+  block.querySelectorAll('.carousel-testimonial-play-btn[data-video-url]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      loadCSS(`${window.hlx.codeBasePath}/scripts/video-modal.css`);
+      const { default: openVideoModal } = await import('../../scripts/video-modal.js');
+      openVideoModal(btn.dataset.videoUrl);
+    });
+  });
 }

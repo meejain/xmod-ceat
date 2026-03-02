@@ -38,6 +38,7 @@
   background: #f8f8f8;
   padding: 40px;
   border-radius: 5px;
+  box-sizing: border-box;
 }
 
 /* Pincode search bar */
@@ -206,7 +207,6 @@
 
   .columns-locator .cl-right {
     width: 45%;
-    flex: none;
   }
 
 }
