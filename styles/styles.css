@@ -36,8 +36,8 @@
   --heading-font-size-s: 24px;
   --heading-font-size-xs: 22px;
 
-  /* nav height */
-  --nav-height: 64px;
+  /* nav height – two-row CEAT header (row1 + separator + row2) */
+  --nav-height: 89px;
 }
 
 /* fallback fonts */
@@ -73,6 +73,9 @@
     --heading-font-size-m: 22px;
     --heading-font-size-s: 20px;
     --heading-font-size-xs: 18px;
+
+    /* nav height – desktop two-row (56 + 1 + 44) */
+    --nav-height: 101px;
   }
 }
 

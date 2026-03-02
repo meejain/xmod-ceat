@@ -8,3 +8,11 @@ async function loadWhatsAppChat() {
 }
 
 loadWhatsAppChat();
+
+async function loadScrollToTop() {
+  loadCSS(`${window.hlx.codeBasePath}/blocks/scroll-to-top/scroll-to-top.css`);
+  const { default: initScrollToTop } = await import('../blocks/scroll-to-top/scroll-to-top.js');
+  initScrollToTop();
+}
+
+loadScrollToTop();
