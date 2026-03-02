@@ -78,6 +78,20 @@ function buildRow1(navBrand, navTools) {
   return row;
 }
 
+/* ── Get top-level nav items (handles both decorated and plain fragment structure) ── */
+function getNavItems(navSections) {
+  if (!navSections) return [];
+  let items = navSections.querySelectorAll(':scope .default-content-wrapper > ul > li');
+  if (items.length === 0) {
+    items = navSections.querySelectorAll(':scope > ul > li');
+  }
+  if (items.length === 0) {
+    const firstUl = navSections.querySelector(':scope ul');
+    items = firstUl ? firstUl.querySelectorAll(':scope > li') : [];
+  }
+  return [...items];
+}
+
 /* ── Build Row 2: Hamburger + Nav Items ── */
 function buildRow2(navSections) {
   const row = document.createElement('div');
@@ -92,12 +106,10 @@ function buildRow2(navSections) {
   const navList = document.createElement('ul');
   navList.className = 'header-nav-list';
 
-  const items = navSections
-    ? navSections.querySelectorAll(':scope .default-content-wrapper > ul > li')
-    : [];
+  const items = getNavItems(navSections);
 
   items.forEach((li) => {
-    const text = li.childNodes[0]?.textContent?.trim() || '';
+    const text = (li.querySelector('p')?.textContent || li.childNodes[0]?.textContent || li.textContent || '').trim();
     if (!text) return;
 
     const isAskAi = text.toLowerCase() === 'ask ai';
@@ -148,12 +160,10 @@ function buildMegaPanels(navSections) {
   const overlay = document.createElement('div');
   overlay.className = 'header-mega-overlay';
 
-  const items = navSections
-    ? navSections.querySelectorAll(':scope .default-content-wrapper > ul > li')
-    : [];
+  const items = getNavItems(navSections);
 
   items.forEach((li) => {
-    const text = li.childNodes[0]?.textContent?.trim() || '';
+    const text = (li.querySelector('p')?.textContent || li.childNodes[0]?.textContent || li.textContent || '').trim();
     if (!text) return;
 
     const isAskAi = text.toLowerCase() === 'ask ai';
@@ -212,7 +222,7 @@ function buildMegaPanels(navSections) {
       const subItems = subList.querySelectorAll(':scope > li');
 
       subItems.forEach((subLi, idx) => {
-        const tabText = subLi.childNodes[0]?.textContent?.trim() || '';
+        const tabText = (subLi.querySelector('p')?.textContent || subLi.childNodes[0]?.textContent || subLi.textContent || '').trim();
         const tabLinks = subLi.querySelector(':scope > ul');
 
         // Tab button
@@ -307,12 +317,10 @@ function buildMobileMega(navSections) {
   const menuList = document.createElement('div');
   menuList.className = 'header-mobile-list';
 
-  const items = navSections
-    ? navSections.querySelectorAll(':scope .default-content-wrapper > ul > li')
-    : [];
+  const items = getNavItems(navSections);
 
   items.forEach((li) => {
-    const text = li.childNodes[0]?.textContent?.trim() || '';
+    const text = (li.querySelector('p')?.textContent || li.childNodes[0]?.textContent || li.textContent || '').trim();
     if (!text) return;
 
     const subList = li.querySelector(':scope > ul');
@@ -349,7 +357,7 @@ function buildMobileMega(navSections) {
         const subItems = subList.querySelectorAll(':scope > li');
 
         subItems.forEach((subLi) => {
-          const tabText = subLi.childNodes[0]?.textContent?.trim() || '';
+          const tabText = (subLi.querySelector('p')?.textContent || subLi.childNodes[0]?.textContent || subLi.textContent || '').trim();
           const tabLinks = subLi.querySelector(':scope > ul');
 
           const subItem = document.createElement('div');
@@ -544,8 +552,13 @@ function wireEvents(hamburgerBtn, megaContainer, megaOverlay, mobileOverlay, mob
 /* ── Main decorate ── */
 export default async function decorate(block) {
   const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/content/nav';
+  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
   const fragment = await loadFragment(navPath);
+
+  if (!fragment) {
+    block.textContent = '';
+    return;
+  }
 
   block.textContent = '';
   const nav = document.createElement('nav');
