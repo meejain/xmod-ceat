@@ -3,7 +3,8 @@
 /* cards-action — dark action link cards with orange arrow (CEAT style) */
 
 .cards-action-container {
-  padding: 60px 0 40px;
+  /* padding: 60px 0 40px; */
+
 }
 
 .cards-action-container .cards-action-wrapper {
@@ -11,6 +12,8 @@
   margin: 0 auto;
   padding: 0 24px;
   z-index: 1;
+  margin-top: 80px;
+  margin-bottom: 150px;
 }
 
 .cards-action ul {
