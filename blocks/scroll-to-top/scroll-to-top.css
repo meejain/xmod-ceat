@@ -1,0 +1,49 @@
+/* scroll-to-top — floating "back to top" arrow button */
+
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 200px;
+  right: 26px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 12%);
+  cursor: pointer;
+  z-index: 90;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: opacity 0.3s, box-shadow 0.2s;
+  opacity: 0;
+}
+
+.scroll-to-top-btn.visible {
+  display: flex;
+  opacity: 1;
+}
+
+.scroll-to-top-btn:hover {
+  box-shadow: 0 4px 14px rgb(0 0 0 / 20%);
+}
+
+.scroll-to-top-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (width < 900px) {
+  .scroll-to-top-btn {
+    bottom: 92px;
+    right: 16px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .scroll-to-top-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+}
