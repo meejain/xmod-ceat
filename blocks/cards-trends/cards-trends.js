@@ -1,4 +1,4 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
+import { createOptimizedPicture, loadCSS } from '../../scripts/aem.js';
 
 /**
  * Update arrow disabled state based on scroll position.
@@ -130,12 +130,17 @@ export default function decorate(block) {
     const strong = bodyDiv.querySelector('p strong') || bodyDiv.querySelector('strong');
     const title = strong ? strong.textContent.trim() : '';
 
+    // Extract video URL from link
+    const videoLink = bodyDiv.querySelector('a[href*="youtube"], a[href*="youtu.be"]');
+    const videoUrl = videoLink ? videoLink.href : '';
+
     // Expect: title (bold), category, type
     let category = '';
     let type = 'Videos';
     paragraphs.forEach((p) => {
       const text = p.textContent.trim();
       if (p.querySelector('strong')) return; // title
+      if (p.querySelector('a[href*="youtube"], a[href*="youtu.be"]')) return; // video link
       if (['Videos', 'Blogs'].includes(text)) {
         type = text;
       } else if (text) {
@@ -145,6 +150,7 @@ export default function decorate(block) {
 
     card.dataset.type = type;
     card.dataset.category = category;
+    if (videoUrl) card.dataset.videoUrl = videoUrl;
 
     // Image with play button overlay
     const cardImage = document.createElement('div');
@@ -223,4 +229,13 @@ export default function decorate(block) {
 
   // Deferred arrow update after layout settles
   requestAnimationFrame(() => updateArrows(block));
+
+  // Wire video card clicks to video modal
+  block.querySelectorAll('.cards-trends-card[data-video-url]').forEach((card) => {
+    card.addEventListener('click', async () => {
+      loadCSS(`${window.hlx.codeBasePath}/scripts/video-modal.css`);
+      const { default: openVideoModal } = await import('../../scripts/video-modal.js');
+      openVideoModal(card.dataset.videoUrl);
+    });
+  });
 }
